@@ -4,9 +4,8 @@ const alert = document.querySelector(".alert")
 const countJump = document.querySelector(".countJump")
 let count = 0
 let gameOver = false
-let pressedOnce = false
 
-//countJump.innerHTML = count
+countJump.innerHTML = count
 
 function jump() {
     if (dino.classList != "jump") {
@@ -28,10 +27,6 @@ let isAlive = setInterval(function() {
     }
 }, 10);
 
-if (pressedOnce) {
-    alert.innerHTML = count
-}
-
 let jumpCount = setInterval(function () {
     if (!gameOver) {
         count ++
@@ -41,5 +36,4 @@ let jumpCount = setInterval(function () {
 
 document.addEventListener("keydown", function (event) {
     jump();
-    pressedOnce = true
 });
