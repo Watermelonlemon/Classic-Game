@@ -2,6 +2,8 @@
     background-color: #fae098;
     border: none;
     position: absolute;
+    text-decoration: none;
+    color: black;
     transform: translate(-50%, -50%);
     top: 55%;
     left: 50%;
