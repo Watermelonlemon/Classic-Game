@@ -1,0 +1,87 @@
+.startOver {
+    background-color: #fae098;
+    border: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 50%;
+    padding: 20px 50px;
+    font-size: 30;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.shooting {
+    background-color: #fae098;
+    border: none;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 70%;
+    left: 50%;
+    padding: 20px 50px;
+    font-size: 30;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.alert {
+    text-align: center;
+}
+
+.game {
+    width: 600px;
+    height:200px;
+    border: 1px solid black;
+    margin: auto
+}
+
+#dino {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-image: url(image/trex_icon.png);
+    background-size: 50px 50px;
+    top: 150px;
+    left: 10px;
+}
+
+.jump {
+    animation: jump 0.4s linear;
+}
+
+@keyframes jump {
+    0% {
+        top: 150px;
+    }
+    30% {
+        top: 120px;
+    }
+    50% { 
+        top: 60px;
+    }
+    80% {
+        top: 120px;
+    }
+    100% {
+        top: 150px;
+    }
+}
+
+#cactus {
+    position: relative;
+    width: 20px;
+    height: 40px;
+    top: 110px;
+    left: 580px;
+    background-image: url(image/cactus.png);
+    background-size: 20px 40px;
+    animation: block 1.5s infinite;
+}
+
+@keyframes block {
+    0% {
+        left: 580px;
+    }
+    100% {
+        left: -20px;
+    }
+}
