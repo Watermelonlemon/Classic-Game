@@ -133,7 +133,7 @@ function spawnEnemies() {
             y = Math.random() < 0.5 ? 0 - radius : canvas.height + radius
         }
 
-        const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x)
+        const angle = Math.atan2(player.y - y, player.x - x)
         const velocity = {
             x: Math.cos(angle),
             y: Math.sin(angle)
@@ -141,7 +141,24 @@ function spawnEnemies() {
         
         randomColor = Math.floor(Math.random() * enemyColors.length)
         enemies.push(new Enemy(x, y, radius, enemyColors[randomColor], velocity))
-    }, 1500)
+    }, 1000)
+}
+
+document.onkeydown = checkKey
+
+function checkKey(e) {
+    e = e || window.event
+
+    if (e.keyCode === 65) {
+        player.x -= 10
+    } else if (e.keyCode === 68) {
+        player.x += 10
+    } else if (e.keyCode === 83) {
+        player.y += 10
+    } else if (e.keyCode === 87) {
+        player.y -= 10
+    }
+    player.update
 }
 
 let animationId
@@ -210,14 +227,14 @@ function animate() {
 }
 
 window.addEventListener('click', (event) => {
-    const angle = Math.atan2(event.clientY - canvas.height / 2, event.clientX - canvas.width / 2)
+    const angle = Math.atan2(event.clientY - player.y, event.clientX - player.x)
     
     const velocity = {
         x: Math.cos(angle),
         y: Math.sin(angle)
     }
     projectiles.push(
-        new Projectile(canvas.width / 2, canvas.height / 2, 5, "rgb(255, 255, 255)", velocity)
+        new Projectile(player.x, player.y, 5, "rgb(255, 255, 255)", velocity)
     )
 }) 
 
