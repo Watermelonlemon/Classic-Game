@@ -64,8 +64,8 @@ class Enemy {
 
     update() {
         this.draw()
-        this.x = this.x + this.velocity.x * speed
-        this.y = this.y + this.velocity.y * speed
+        this.x = this.x + this.velocity.x * (Math.random() + speed - 1)
+        this.y = this.y + this.velocity.y * (Math.random() + speed - 1)
     }
 }
 
@@ -107,7 +107,7 @@ let particles = []
 let speed = 1
 let increaseSpeed = setInterval (function() {
     speed += 0.2
-}, 30000)
+}, 3000)
 
 function init() {
     player = new Player(x, y, 15, "rgb(300, 300, 350)")
@@ -141,7 +141,7 @@ function spawnEnemies() {
         
         randomColor = Math.floor(Math.random() * enemyColors.length)
         enemies.push(new Enemy(x, y, radius, enemyColors[randomColor], velocity))
-    }, 1000)
+    }, 1500)
 }
 
 let animationId
