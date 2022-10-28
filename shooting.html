@@ -5,9 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Shooting Circles</title>
 </head>
-<body>
+<body class="bg-black">
+    <div class="fixed text-white pl-4 pt-4 select-none"><span>Score: </span><span id ="scoreBoard">0</span></div>
+    <div id="scoreWindow" class="hidden fixed inset-0 flex items-center justify-center">
+        <div class="bg-white rounded-md text-center px-20 py-5 space-y-1">
+            <h1 id="finalScore" class="font-semibold text-2xl">0</h1>
+            <p>points</p>
+            <div>
+                <button id="reStartGameBtn" class="bg-slate-200 mt-4 rounded-xl px-10 py-2 hover:bg-slate-700 hover:text-white">Start Game</button>
+            </div>
+        </div>
+    </div>
+    <div id = "startWindow" class="fixed inset-0 flex items-center justify-center">
+        <button id="StartGameBtn" class="bg-slate-200 mt-4 rounded-xl px-10 py-2 hover:bg-slate-700 hover:text-white">Start Game</button>
+    </div>
+    
     <canvas width="640" height="150"></canvas>
     <script src="/js/shooting.js"></script>
 </body>
