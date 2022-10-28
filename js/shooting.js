@@ -126,8 +126,24 @@ function animate() {
         projectile.update()
     })
 
-    enemies.forEach(enemy => {
+    enemies.forEach((enemy, idxEnemy) => {
         enemy.update()
+        projectiles.forEach((projectile, idxPro) => {
+            const dist = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y)
+            if (dist - enemy.radius - projectile.radius < 1)  {
+                //enemies.splice(idxEnemy, 1)
+                if (enemy.radius > projectile.radius * 2) {
+                    enemy.radius = enemy.radius - projectile.radius * 2
+                } else {
+                    enemies.splice(idxEnemy, 1)
+                }
+                projectiles.splice(idxPro, 1)
+            }
+            const distToCenter = Math.hypot(player.x - enemy.x, player.y - enemy.y) 
+            if (distToCenter - player.radius - enemy.radius < 1) {
+                alert("Game Over")
+            }
+        })
     })
 }
 
