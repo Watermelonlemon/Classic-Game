@@ -129,3 +129,11 @@ document.addEventListener('keydown', control)
 
 animate()
 spawnCactus()
+
+
+// StartGameBtn.addEventListener("click", (event)=>{
+//     init()
+//     animate()
+//     spawnCactus()
+//     startWindow.style.display = 'none'
+// })
