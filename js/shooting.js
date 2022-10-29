@@ -99,6 +99,7 @@ class Particle {
 const x = canvas.width/2
 const y = canvas.height/2
 
+let frames = 0
 let player = new Player(x, y, 15, "rgb(300, 300, 350)")
 let projectiles = []
 let enemies = []
@@ -114,6 +115,8 @@ function init() {
     projectiles = []
     enemies = []
     particles = []
+    frames = 0
+    speed = 1
     score = 0
     scoreBoard.innerHTML = score
 }
@@ -171,7 +174,6 @@ function animate() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     player.draw()
-
     particles.forEach((particle, idxParticle) => {
         particle.update()
         if (particle.alpha <= 0){
