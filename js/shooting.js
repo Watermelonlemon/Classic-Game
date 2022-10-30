@@ -122,6 +122,9 @@ function init() {
 }
 
 function spawnEnemies() {
+    // if (frames % 60 === 0) {
+    //     spawnEnemies()
+    // }
     setInterval(() => {
         // const x = Math.random() * canvas.width
         // const y = Math.random() * canvas.height
@@ -174,6 +177,7 @@ function animate() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     player.draw()
+    frames ++
     particles.forEach((particle, idxParticle) => {
         particle.update()
         if (particle.alpha <= 0){
@@ -240,16 +244,18 @@ window.addEventListener('click', (event) => {
     )
 }) 
 
+spawnEnemies()
+
 reStartGameBtn.addEventListener('click', (event) => {
     init()
     animate()
-    spawnEnemies()
+    //spawnEnemies()
     scoreWindow.style.display = 'none'
 })
 
 StartGameBtn.addEventListener('click', (event) => {
     init()
     animate()
-    spawnEnemies()
+    //spawnEnemies()
     startWindow.style.display = 'none'
 })
