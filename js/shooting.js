@@ -122,12 +122,7 @@ function init() {
 }
 
 function spawnEnemies() {
-    // if (frames % 60 === 0) {
-    //     spawnEnemies()
-    // }
     setInterval(() => {
-        // const x = Math.random() * canvas.width
-        // const y = Math.random() * canvas.height
         const radius = Math.random() * (30 - 10) + 10
         let x
         let y
@@ -147,7 +142,7 @@ function spawnEnemies() {
         
         randomColor = Math.floor(Math.random() * enemyColors.length)
         enemies.push(new Enemy(x, y, radius, enemyColors[randomColor], velocity))
-    }, 1000)
+    }, 1500)
 }
 
 document.onkeydown = checkKey
@@ -172,8 +167,6 @@ let score = 0
 
 function animate() {
     animationId = requestAnimationFrame(animate)
-    // projectile.draw()
-    // projectile.update()
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     player.draw()
@@ -249,13 +242,11 @@ spawnEnemies()
 reStartGameBtn.addEventListener('click', (event) => {
     init()
     animate()
-    //spawnEnemies()
     scoreWindow.style.display = 'none'
 })
 
 StartGameBtn.addEventListener('click', (event) => {
     init()
     animate()
-    //spawnEnemies()
     startWindow.style.display = 'none'
 })

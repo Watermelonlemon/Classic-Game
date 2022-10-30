@@ -1,9 +1,8 @@
 const canvas = document.querySelector("canvas")
 const ctx = canvas.getContext("2d")
 const ctxTwo = canvas.getContext("2d")
-const reStartGameBtn = document.getElementById("reStartGameBtn")
-const StartGameBtn = document.getElementById("StartGameBtn")
-const scoreWindow = document.getElementById("scoreWindow")
+const ctxThree = canvas.getContext("2d")
+const startOver = document.getElementById("startOver")
 let isJumping = false
 let isGameOver = false
 let score = 0
@@ -84,6 +83,13 @@ function jump() {
     }, 20) 
 }
 
+function init() {
+    isGameOver = false
+    dino = new Dino()
+    cactuses = []
+    score = 0
+}
+
 let animationId
 
 function animate() {
@@ -93,8 +99,11 @@ function animate() {
     ctxTwo.fillStyle = "black"
     ctxTwo.lineWidth = 5
     ctxTwo.font = "20px Arial"
-    ctxTwo.fillText(`Score: ${score}`, canvas.width/2-30, 50)
+    ctxTwo.fillText(`Score: ${score}`, 20, 50)
     ctxTwo.strokeRect(0, 0, canvas.width, canvas.height)
+    ctxThree.font = "20px Arial"
+    ctxThree.fillStyle = "black"
+    ctxThree.fillText("Press up arrow to jump", canvas.width - 230, 50)
     dino.draw()
     console.log(cactuses)
     cactuses.forEach((cactus, cacIdx) => {
@@ -111,14 +120,19 @@ function animate() {
 }
 
 function control(e) {
-    if (e.keyCode === 32) {
+    if (e.keyCode === 38) {
         if (!isJumping) {
             jump()
             isJumping = true
         }
     }
 }
-document.addEventListener('keydown', control)
+document.addEventListener('keydown', (control))
 
 animate()
 spawnCactus()
+
+startOver.addEventListener('click', (event) => {
+    init()
+    animate()
+})
