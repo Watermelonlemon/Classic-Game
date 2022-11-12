@@ -104,6 +104,7 @@ function animate() {
     ctxThree.font = "20px Arial"
     ctxThree.fillStyle = "black"
     ctxThree.fillText("Press up arrow to jump", canvas.width - 230, 50)
+    
     dino.draw()
     console.log(cactuses)
     cactuses.forEach((cactus, cacIdx) => {
